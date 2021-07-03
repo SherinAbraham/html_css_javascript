@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Mate+SC&display=swap");
+
+:root {
+  --universal-background: #D3D3D3;
+  --progress-background: #32CD32;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Mate SC", serif;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F5F5F5;
+}
+
+h1 {
+  position: absolute;
+  top:10px;
+  left: 40%;
+}
+
+.progress-sheet {
+  text-align: center;
+  position: relative;
+}
+
+.progress-bar-container::before {
+  content: '';
+  background-color: var(--universal-background);
+  position: absolute;
+  top: 17%;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+
+.progress-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.circle-stage {
+  font-family: inherit;
+  background-color: #FFFFF0;
+  border: solid var(--universal-background);
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  transition: 0.4s ease-in;
+}
+.action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 300px;
+}
+
+.prev-button, .next-button {
+  height: 30px;
+  width: 100px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
+  background: var(--progress-background);
+}
+
+.progress-bar {
+  background-color: var(--progress-background);
+  height: 4px;
+  width: 0;
+  position: absolute;
+  top: 17%;
+  left: 0;
+  z-index: -1;
+  transition: 0.4s ease-in;
+}
+
+button:disabled {
+  background: var(--universal-background);
+  cursor: not-allowed;
+}
+
+.circle-stage.active {
+  border-color: var(--progress-background);
+}
